@@ -43,7 +43,7 @@ class MoviesController extends Controller
             ->json()['results'];
 
 
-        dump($nowPlayingMovies);
+        //dump($popularTvShows);
 
         return view('layouts.index', [
             'popularMovies' => $popularMovies,
@@ -83,7 +83,28 @@ class MoviesController extends Controller
      */
     public function show($id)
     {
-        //
+        $movieDetail = Http::withToken(config('services.tmdb.token'))
+            ->get('https://api.themoviedb.org/3/movie/' . $id . '?append_to_response=credits,videos,images')
+            ->json();
+
+        //dump($movieDetail);
+
+        return view('layouts.show', [
+            'movieDetail' => $movieDetail,
+        ]);
+    }
+
+    public function tvshow($id)
+    {
+        $tvDetail = Http::withToken(config('services.tmdb.token'))
+        ->get('https://api.themoviedb.org/3/tv/' . $id . '?append_to_response=credits,videos,images')
+        ->json();
+
+        dump($tvDetail);
+
+        return view('layouts.tvshow', [
+            'tvDetail' => $tvDetail
+        ]);
     }
 
     /**
