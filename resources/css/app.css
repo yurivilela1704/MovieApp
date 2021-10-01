@@ -3,6 +3,10 @@
 @tailwind components;
 @tailwind utilities;
 
+.spinner {
+    position: absolute;
+}
+
 @font-face {
     font-family: 'Material Icons';
     font-style: normal;

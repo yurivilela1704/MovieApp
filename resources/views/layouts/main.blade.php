@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="resources/css/app.css">
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    @livewireStyles
 
     <title>Movie App</title>
 </head>
@@ -24,7 +25,7 @@
                     <a href="{{ route('movies.index') }}" class="hover:text-yellow-500">Home</a>
                 </li>
                 <li class="md:ml-6 mt-3 md:mt-0">
-                    <a href="#" class="hover:text-yellow-500">Movies</a>
+                    <a href="{{ route('moviesSession') }}" class="hover:text-yellow-500">Movies</a>
                 </li>
                 <li class="md:ml-6 mt-3 md:mt-0">
                     <a href="#" class="hover:text-yellow-500">Tv Shows</a>
@@ -34,13 +35,7 @@
                 </li>
             </ul>
             <div class="flex flex-col md:flex-row items-center">
-                <div class="relative mt-3 md:mt-0">
-                    <input type="text" class="bg-gray-800 rounded-full w-64 px-4 pl-8 py-1
-                    focus:outline-none focus:shadow-outline" placeholder="Search">
-                    <div class="absolute top-0">
-                        <i class="material-icons fill-current w-4 text-gray-500 mt-1 ml-1.5 md-24">search</i>
-                    </div>
-                </div>
+                <livewire:search-dropdown>
                 <div class="md:ml-4 mt-3 md:mt-0">
                     <a href="#">
                         <img src="/img/foto-eu.jpg" class="rounded-full w-8 h-8">
@@ -50,5 +45,6 @@
         </div>
     </nav>
     @yield('content')
+    @livewireScripts
 </body>
 </html>
