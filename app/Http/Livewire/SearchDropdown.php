@@ -14,8 +14,8 @@ class SearchDropdown extends Component
     public function render()
     {
         $searchResults = [];
-        
-        if(strlen($this->search) > 1) 
+
+        if(strlen($this->search) > 1)
         {
             $searchResults = Http::withToken(config('services.tmdb.token'))
                 ->get('https://api.themoviedb.org/3/search/movie?query=' . $this->search)
@@ -23,7 +23,7 @@ class SearchDropdown extends Component
         }
 
         return view('livewire.search-dropdown', [
-            'searchResults' => collect($searchResults)->take(8)
+            'searchResults' => collect($searchResults)->take(7)
         ]);
     }
 }

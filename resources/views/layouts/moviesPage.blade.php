@@ -22,8 +22,30 @@
                         <x-movie-card :movie="$movie" :genresMovie="$genresMovie"></x-movie-card>
                     @endif
                 @endforeach
-            </div><!-- end now-playing-movies -->
-        </div>
+            </div>
+        </div><!-- end now-playing-movies -->
+
+        <div class="top-rated py-12"><!-- begin top-rated-movies -->
+            <h1 class="uppercase tracking-wider text-yellow-500 text-lg font-semibold">Top Rated Movies</h1>
+            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols -3 lg:grid-cols-5 gap-8">
+                @foreach($topRatedMovies as $movie)
+                    @if($loop->index < 10)
+                        <x-movie-card :movie="$movie" :genresMovie="$genresMovie"></x-movie-card>
+                    @endif
+                @endforeach
+            </div>
+        </div><!-- end top-rated-movies -->
+
+        <div class="upcoming-movies py-12"><!-- begin upcoming-movies -->
+            <h1 class="uppercase tracking-wider text-yellow-500 text-lg font-semibold">Upcoming Movies</h1>
+            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols -3 lg:grid-cols-5 gap-8">
+                @foreach($upcomingMovies as $movie)
+                    @if($loop->index < 10)
+                        <x-movie-card :movie="$movie" :genresMovie="$genresMovie"></x-movie-card>
+                    @endif
+                @endforeach
+            </div>
+        </div><!-- end upcoming-movies -->
     </div>
 @endsection
 
